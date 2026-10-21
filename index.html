@@ -148,6 +148,25 @@ header{position:relative}
 .top .authbtn{position:absolute;right:0;top:12px;margin:0}
 .top .brand{margin:0 auto}
 .sesong{position:absolute;right:16px;bottom:10px;font-size:.95rem;font-weight:700;color:var(--gold);letter-spacing:.3px;white-space:normal}
+/* ---- Mobil: ingen vannrett sideutglidning ---- */
+.grid > * { min-width: 0; }
+.card { max-width: 100%; }
+@media (max-width: 760px) {
+  .grid { grid-template-columns: minmax(0, 1fr); }
+  main { padding: 14px 10px 32px; }
+  table { display: block; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; }
+  .brandbox.big { padding: 6px 10px; margin-right: 0; }
+  .brandbox.big img { height: 64px; }
+  .top { min-height: auto; padding: 10px 0 6px; }
+  .top .authbtn { top: 10px; }
+  .sb-score { font-size: 2rem; }
+  .scoreboard { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 6px; padding: 12px 8px; }
+  .sb-lag { font-size: .85rem; }
+  .sb-lag .logo { height: 44px; width: 44px; }
+  .crest { height: 110px; }
+  .lagrebar { margin: 14px -10px -10px; }
+  .modal-box { padding: 18px 14px 14px; }
+}
 </style>
 </head>
 <body>
