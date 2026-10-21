@@ -2,7 +2,7 @@
 <html lang="no">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,interactive-widget=resizes-content">
 <title>Tønsberg Beer League – skisse</title>
 <style>
 :root{--bg:#f6f4ef;--card:#fff;--ink:#1b2130;--muted:#6b7280;--line:#e4e7ee;--navy:#14284b;--accent:#1d3a6b;--gold:#d9a84e;--win:#15803d;--loss:#b91c1c;--red:#b91c1c}
@@ -167,6 +167,8 @@ header{position:relative}
   .lagrebar { margin: 14px -10px -10px; }
   .modal-box { padding: 18px 14px 14px; }
 }
+.modal-box { max-height: 90vh; overflow-y: auto; }
+.lagrebar { bottom: 0; z-index: 5; }
 </style>
 </head>
 <body>
@@ -896,6 +898,13 @@ $('#modalX').onclick = lukkModal;
 $('#modal').addEventListener('click', e => { if (e.target.id === 'modal') lukkModal(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') lukkModal(); });
 document.querySelectorAll('nav button').forEach(b => b.onclick = () => goto(b.dataset.v));
+
+/* ---- Mobil: scroll aktivt felt over tastaturet ---- */
+document.addEventListener('focusin', e => {
+  if (e.target.matches('input, textarea, select')) {
+    setTimeout(() => e.target.scrollIntoView({ block: 'center', behavior: 'smooth' }), 300);
+  }
+});
 
 /* ---- Oppstart ---- */
 (async () => {
